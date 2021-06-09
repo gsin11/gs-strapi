@@ -7,7 +7,7 @@ module.exports = ({ env }) => ({
       serviceBaseURL: env("STORAGE_URL", ""),
       containerName: env("STORAGE_CONTAINER_NAME"),
       cdnBaseURL: env("STORAGE_CDN_URL", ""),
-      defaultPath: "/images",
+      defaultPath: "/",
       maxConcurrent: 10,
     },
   },
