@@ -1,14 +1,19 @@
-module.exports = ({ env }) => ({
-  upload: {
-    provider: "azure-storage",
-    providerOptions: {
-      account: env("STORAGE_ACCOUNT"),
-      accountKey: env("STORAGE_ACCOUNT_KEY"),
-      serviceBaseURL: env("STORAGE_URL", ""),
-      containerName: env("STORAGE_CONTAINER_NAME"),
-      cdnBaseURL: env("STORAGE_CDN_URL", ""),
-      defaultPath: "/",
-      maxConcurrent: 10,
+module.exports = ({ env }) => {
+  if (env("NODE_ENV") === "development") {
+    return true;
+  }
+  return {
+    upload: {
+      provider: "azure-storage",
+      providerOptions: {
+        account: env("STORAGE_ACCOUNT"),
+        accountKey: env("STORAGE_ACCOUNT_KEY"),
+        serviceBaseURL: env("STORAGE_URL", ""),
+        containerName: env("STORAGE_CONTAINER_NAME"),
+        cdnBaseURL: env("STORAGE_CDN_URL", ""),
+        defaultPath: "/",
+        maxConcurrent: 10,
+      },
     },
-  },
-});
+  };
+};
