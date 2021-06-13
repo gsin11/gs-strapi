@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "posts",
+  "collectionName": "dishes",
   "info": {
-    "name": "post",
+    "name": "dish",
     "description": ""
   },
   "options": {
@@ -12,14 +12,17 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "name": {
       "type": "string"
     },
-    "content": {
-      "type": "richtext"
+    "short_description": {
+      "type": "text"
     },
-    "coverImage": {
-      "model": "file",
+    "price": {
+      "type": "decimal"
+    },
+    "image": {
+      "collection": "file",
       "via": "related",
       "allowedTypes": [
         "images",
@@ -30,22 +33,16 @@
       "required": false,
       "pluginOptions": {}
     },
-    "date": {
-      "type": "date"
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "title"
-    },
-    "author": {
-      "model": "author"
-    },
     "status": {
       "type": "enumeration",
       "enum": [
         "published",
         "draft"
       ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
     }
   }
 }
