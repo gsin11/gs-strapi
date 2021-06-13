@@ -39,10 +39,6 @@
         "published",
         "draft"
       ]
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "name"
     }
   }
 }
